@@ -29,5 +29,5 @@ void _char(va_list);
 void _str(va_list);
 void _int(va_list);
 void _binary(va_list);
-
+void _strspe(va_list);
 #endif
