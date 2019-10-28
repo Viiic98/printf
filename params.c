@@ -7,7 +7,7 @@
  */
 int _char(va_list arg)
 {
-	char c = va_arg(arg, int);
+	unsigned char c = va_arg(arg, int);
 
 	write(1, &c, 1);
 	return (1);
@@ -21,7 +21,7 @@ int _char(va_list arg)
  */
 int _str(va_list arg, int len)
 {
-	char *str;
+	const char *str;
 	int i;
 
 	str = va_arg(arg, char *);

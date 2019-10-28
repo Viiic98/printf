@@ -7,7 +7,7 @@
  *
  *Return: size of the string without the null \0 placed at the end of it
  */
-int _strlen(char *s)
+int _strlen(const char *s)
 {
 	int num;
 
