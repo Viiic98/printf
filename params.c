@@ -13,29 +13,40 @@ void _char(va_list arg)
 }
 
 /**
- *_str - prints a string
- *@arg: list that contains the argument that will be printed
+ * _str - prints a string
+ * @arg: list that contains the argument that will be printed
+ * @len: Size specified to print (Spaces if len > string)
  *Return: nothing
  */
-void _str(va_list arg)
+void _str(va_list arg, int len)
 {
 	char *str;
 	int i;
 
 	str = va_arg(arg, char *);
+	if (str == NULL || *str == '\0')
+		return;
+
 	i = _strlen(str);
+
+	while (len > i)
+	{
+		write(1, " ", 1);
+		len--;
+	}
 
 	write(1, str, i);
 }
 
 /**
- *_int - prints an int
- *@arg: list that contains the argument that will be printed
- *Return: nothing
+ * _int - prints an int
+ * @arg: list that contains the argument that will be printed
+ * @len: Size specified to print (Spaces if len > string)
+ * Return: nothing
  */
-void _int(va_list arg)
+void _int(va_list arg, int len)
 {
-	_itoa(va_arg(arg, int));
+	_itoa(va_arg(arg, int), len);
 }
 /**
  * _strspe - String convert special chars to hexa

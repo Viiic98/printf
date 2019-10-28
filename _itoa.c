@@ -3,9 +3,10 @@
 /**
  *_itoa - converts an int to a string of char and prints it
  *@x: integer that will be converted
+ *@len: characters that must be printed
  *Return: nothing
  */
-void _itoa(int x)
+void _itoa(int x, int len)
 {
 	char s[11];
 	int i = 0;
@@ -22,6 +23,11 @@ void _itoa(int x)
 		i++;
 	}
 	i--;
+	while ((len - 1) > i)
+	{
+		write(1, " ", 1);
+		len--;
+	}
 	while (i >= 0)
 	{
 		write(1, (s + i), 1);
