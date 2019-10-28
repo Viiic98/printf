@@ -31,5 +31,5 @@ int _char(va_list, int);
 int _str(va_list, int);
 int _int(va_list, int);
 int _binary(va_list, int);
-int _strspe(va_list, int);
+
 #endif

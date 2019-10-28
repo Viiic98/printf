@@ -56,31 +56,3 @@ int _int(va_list arg, int len)
 {
 	return (_itoa(va_arg(arg, int), len));
 }
-/**
- * _strspe - String convert special chars to hexa
- * @arg: list that contains the argument that will be printed
- * @len: Size specified to print (Spaces if len > string)
- * Return: amount of bytes printed
- */
-int _strspe(va_list arg, int len)
-{
-/*
- *	char *str, *wild = "\\x";
- *	int x;
- *
- *	str = va_arg(arg, char *);
- *
- *	for (; *str != '\0'; str++)
- *	{
- *		if (*str >= 32 && *str < 127)
- *			write(1, str, 1);
- *		else
- *		{
- *			x = *str;
- *			write(1, wild, 2);
- *			hexa(x);
- *		}
- *	}
-*/	return (0);
-}
-
