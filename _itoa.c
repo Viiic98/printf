@@ -4,12 +4,12 @@
  *_itoa - converts an int to a string of char and prints it
  *@x: integer that will be converted
  *@len: characters that must be printed
- *Return: nothing
+ *Return: amount of bytes printed
  */
-void _itoa(int x, int len)
+int _itoa(int x, int len)
 {
 	char s[11];
-	int i = 0;
+	int i = 0, bytes = 0;
 
 	if (x < 0)
 	{
@@ -23,6 +23,9 @@ void _itoa(int x, int len)
 		i++;
 	}
 	i--;
+	bytes = i;
+	if ((len - 1) > i)
+		bytes = len;
 	while ((len - 1) > i)
 	{
 		write(1, " ", 1);
@@ -33,4 +36,5 @@ void _itoa(int x, int len)
 		write(1, (s + i), 1);
 		i--;
 	}
+	return (bytes);
 }

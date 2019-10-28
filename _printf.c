@@ -8,7 +8,7 @@
 int _printf(const char *format, ...)
 {
 	va_list arg;
-	int i, flag = 0, len = 0;
+	int i, flag = 0, len = 0, bytes = 0;
 
 	va_start(arg, format);
 
@@ -24,13 +24,26 @@ int _printf(const char *format, ...)
 			}
 			flag = _compare(format[i], len, arg);
 			if (flag == 0)
+			{
+				if (format[i] != '%')
+				{
+					bytes++;
+					_putchar(format[i - 1]);
+				}
 				_putchar(format[i]);
+				bytes++;
+			}
+			else
+				bytes += flag;
 		}
 		else
+		{
+			bytes++;
 			_putchar(format[i]);
+		}
 	}
 	va_end(arg);
-	return (i);
+	return (bytes);
 }
 /**
  * _isnumber - length input
@@ -68,10 +81,9 @@ int _compare(char format, int len, va_list arg)
 		if (params[j].f == format)
 		{
 			if (params[j].f == 'c' || params[j].f == 'b')
-				params[j].p(arg);
+				flag = params[j].p(arg);
 			else
-				params[j].pl(arg, len);
-			flag = 1;
+				flag = params[j].pl(arg, len);
 			break;
 		}
 		else

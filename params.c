@@ -3,29 +3,30 @@
 /**
  *_char - prints a char
  *@arg: list that contains the argument that will be printed
- *Return: nothing
+ *Return: amount of bytes printed
  */
-void _char(va_list arg)
+int _char(va_list arg)
 {
 	char c = va_arg(arg, int);
 
 	write(1, &c, 1);
+	return (1);
 }
 
 /**
  * _str - prints a string
  * @arg: list that contains the argument that will be printed
  * @len: Size specified to print (Spaces if len > string)
- *Return: nothing
+ *Return: amount of bytes printed
  */
-void _str(va_list arg, int len)
+int _str(va_list arg, int len)
 {
 	char *str;
 	int i;
 
 	str = va_arg(arg, char *);
 	if (str == NULL || *str == '\0')
-		return;
+		return (0);
 
 	i = _strlen(str);
 
@@ -36,24 +37,25 @@ void _str(va_list arg, int len)
 	}
 
 	write(1, str, i);
+	return (i);
 }
 
 /**
  * _int - prints an int
  * @arg: list that contains the argument that will be printed
  * @len: Size specified to print (Spaces if len > string)
- * Return: nothing
+ * Return: amount of bytes printed
  */
-void _int(va_list arg, int len)
+int _int(va_list arg, int len)
 {
-	_itoa(va_arg(arg, int), len);
+	return (_itoa(va_arg(arg, int), len));
 }
 /**
  * _strspe - String convert special chars to hexa
  * @arg: list that contains the argument that will be printed
- * Return: nothing
+ * Return: amount of bytes printed
  */
-void _strspe(va_list arg)
+int _strspe(va_list arg)
 {
 	char *str, *wild = "\\x";
 	int x;
@@ -71,4 +73,5 @@ void _strspe(va_list arg)
 			hexa(x);
 		}
 	}
+	return (0);
 }
