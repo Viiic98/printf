@@ -68,22 +68,19 @@ int _compare(char format, int len, va_list arg)
 {
 	int j, flag = 0;
 	form params[] = {
-		{'c', _char, NULL},
-		{'s', NULL, _str},
-		{'d', NULL, _int},
-		{'i', NULL, _int},
-		{'b', _binary, NULL},
-		{'\0', NULL, NULL},
+		{'c', _char},
+		{'s', _str},
+		{'d', _int},
+		{'i', _int},
+		{'b', _binary},
+		{'\0', NULL},
 	};
 
 	for (j = 0; params[j].f != '\0'; j++)
 	{
 		if (params[j].f == format)
 		{
-			if (params[j].f == 'c' || params[j].f == 'b')
-				flag = params[j].p(arg);
-			else
-				flag = params[j].pl(arg, len);
+			flag = params[j].p(arg, len);
 			break;
 		}
 		else

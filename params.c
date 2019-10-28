@@ -3,12 +3,18 @@
 /**
  *_char - prints a char
  *@arg: list that contains the argument that will be printed
+ *@len: Size specified to printf (spaces if len > char)
  *Return: amount of bytes printed
  */
-int _char(va_list arg)
+int _char(va_list arg, int len)
 {
 	unsigned char c = va_arg(arg, int);
 
+	while (len > 1)
+	{
+		write(1, " ", 1);
+		len--;
+	}
 	write(1, &c, 1);
 	return (1);
 }
@@ -53,25 +59,28 @@ int _int(va_list arg, int len)
 /**
  * _strspe - String convert special chars to hexa
  * @arg: list that contains the argument that will be printed
+ * @len: Size specified to print (Spaces if len > string)
  * Return: amount of bytes printed
  */
-int _strspe(va_list arg)
+int _strspe(va_list arg, int len)
 {
-	char *str, *wild = "\\x";
-	int x;
-
-	str = va_arg(arg, char *);
-
-	for (; *str != '\0'; str++)
-	{
-		if (*str >= 32 && *str < 127)
-			write(1, str, 1);
-		else
-		{
-			x = *str;
-			write(1, wild, 2);
-			hexa(x);
-		}
-	}
-	return (0);
+/*
+ *	char *str, *wild = "\\x";
+ *	int x;
+ *
+ *	str = va_arg(arg, char *);
+ *
+ *	for (; *str != '\0'; str++)
+ *	{
+ *		if (*str >= 32 && *str < 127)
+ *			write(1, str, 1);
+ *		else
+ *		{
+ *			x = *str;
+ *			write(1, wild, 2);
+ *			hexa(x);
+ *		}
+ *	}
+*/	return (0);
 }
+

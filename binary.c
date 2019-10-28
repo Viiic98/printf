@@ -5,7 +5,7 @@
  *@arg: list that will contain the argument needed in order to print the binary
  *Return: amount of bytes printed
  */
-int _binary(va_list arg)
+int _binary(va_list arg, int len)
 {
 	int i = 0;
 	int x = va_arg(arg, int);
@@ -26,5 +26,6 @@ int _binary(va_list arg)
 			_putchar('0');
 		i--;
 	}
-	return (0);
+	return (len);
 }
+
