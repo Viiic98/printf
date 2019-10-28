@@ -25,6 +25,7 @@ void _revstr(char *);
 int _pow(int, int);
 int _isnumber(int, int);
 int _compare(char, int, va_list);
+void hexa(int x);
 
 /* parameter functions */
 void _char(va_list);

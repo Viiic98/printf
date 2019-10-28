@@ -1,5 +1,5 @@
 #include "holberton.h"
-void hexa(int x);
+
 /**
  *_char - prints a char
  *@arg: list that contains the argument that will be printed

@@ -23,6 +23,7 @@ int _printf(const char *format, ...)
 				i++;
 			}
 			flag = _compare(format[i], len, arg);
+			if (flag == 0)
 				_putchar(format[i]);
 		}
 		else
