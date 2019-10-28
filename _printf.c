@@ -67,7 +67,7 @@ int _compare(char format, int len, va_list arg)
 	{
 		if (params[j].f == format)
 		{
-			if (params[j].f == ('c' || 'b'))
+			if (params[j].f == 'c' || params[j].f == 'b')
 				params[j].p(arg);
 			else
 				params[j].pl(arg, len);
