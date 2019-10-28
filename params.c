@@ -31,7 +31,7 @@ int _str(va_list arg, int len)
 	int i;
 
 	str = va_arg(arg, char *);
-	if (*str == '\0')
+	if (str == NULL)
 		return (0);
 
 	i = _strlen(str);
