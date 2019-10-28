@@ -10,11 +10,12 @@ int _printf(const char *format, ...)
 	va_list arg;
 	int i, flag = 0, len = 0, bytes = 0;
 
+	if (format == NULL)
+		return (-1);
 	va_start(arg, format);
-
 	for (i = 0; format[i] != '\0'; i++)
 	{
-		if (format[i] == '%')
+		if (format[i] == '%' && format[i + 1] != '\0')
 		{
 			i++;
 			while (format[i] - 48 >= 0 && format[i] - 48 <= 9)
@@ -35,6 +36,10 @@ int _printf(const char *format, ...)
 			}
 			else
 				bytes += flag;
+		}
+		else if (format[i] == '%' && format[i + 1] == '\0')
+		{
+			return (bytes);
 		}
 		else
 		{
@@ -75,7 +80,6 @@ int _compare(char format, int len, va_list arg)
 		{'b', _binary},
 		{'\0', NULL},
 	};
-
 	for (j = 0; params[j].f != '\0'; j++)
 	{
 		if (params[j].f == format)
