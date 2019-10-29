@@ -13,6 +13,7 @@ int _itoa(int x, int len)
 
 	if (x < 0)
 	{
+		if (x > INT_MIN)
 		_putchar('-');
 		x *= -1;
 	}

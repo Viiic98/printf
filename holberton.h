@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <stdarg.h>
+#include <limits.h>
 /**
  * struct format - structure for printf format
  * @f: format char
