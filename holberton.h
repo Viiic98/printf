@@ -21,8 +21,7 @@ int _printf(const char *format, ...);
 int _strlen(const char *s);
 int _putchar(char c);
 int print_number(int, int);
-void _revstr(char *);
-unsigned int _pow(unsigned int, unsigned int);
+void _revstr(char *)
 int _isnumber(int, int);
 int _compare(char, int, va_list);
 int hexa(int x);
