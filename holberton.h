@@ -31,6 +31,7 @@ int positive(int, int, int);
 int negative(int, int, int, int);
 int print_binary(int, int);
 int _rev(va_list arg, int len);
+int print_rot13(va_list arg, int len);
 
 /* parameter functions */
 int _char(va_list, int);

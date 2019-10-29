@@ -68,6 +68,7 @@ int _compare(char format, int len, va_list arg)
 		{'b', _binary},
 		{'S', _strspe},
 		{'r', _rev},
+		{'R', print_rot13},
 		{'\0', NULL},
 	};
 	for (j = 0; params[j].f != '\0'; j++)
