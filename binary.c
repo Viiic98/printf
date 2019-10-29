@@ -8,7 +8,7 @@
  */
 int _binary(va_list arg, int len)
 {
-	int i = 0;
+	int i = 0, bytes = 0;
 	int x = va_arg(arg, int);
 
 	while (_pow(2, i) <= x)
@@ -16,17 +16,27 @@ int _binary(va_list arg, int len)
 		i++;
 	}
 	i--;
+
+	while (len > i)
+	{
+		_putchar(' ');
+		bytes++;
+	}
 	while (i >= 0)
 	{
 		if (_pow(2, i) <= x)
 		{
 			x -= _pow(2, i);
 			_putchar('1');
+			bytes++;
 		}
 		else
+		{
 			_putchar('0');
+			bytes++;
+		}
 		i--;
 	}
-	return (len);
+	return (bytes);
 }
 
