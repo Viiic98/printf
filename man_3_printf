@@ -49,6 +49,10 @@ The \fIb\fR specifier takes the unsigned int argument and converts it to binary 
 .B S
 
 The \fIS\fR specifier takes a const char * and writes it very similarly to the way the \fIs\fR specifier writes the string that is passed through it, except it takes the non printable ASCII characters and prints them like: \fI\\x\fR followed by the ASCII code value in uppercase hexadecimal-always 2 characters.
+
+.B r
+
+The \fIr\fR specifier takes a const char * and writes it very similarly to the way the \fIs\fR specifier writes the string that is passed through it, except it does it in reverse
 .SH BUGS
 The function does not handle the \fIflag characters, field width, precision, or length modifiers\fR. It also does not process the following conversion specifiers: \fIu, o, x, X, p, +, space, #, r, R, 0, -.
 .SH AUTHOR
