@@ -23,7 +23,6 @@ void print_rev(const char *s)
 		s--;
 		p--;
 	}
-	_putchar(10);
 }
 
 /**
