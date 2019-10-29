@@ -62,10 +62,16 @@ int _int(va_list arg, int len)
 
 	return (print_number(x, len));
 }
+/**
+ * _strspe - Ignore special characters
+ * @arg: list of arguments
+ * @len: Size specified to print (Spaces if len > string)
+ * Return: Amount of bytes printed
+ */
 int _strspe(va_list arg, int len)
 {
 	char *str, *wild = "\\x";
-	int x;
+	int x, bytes = 0;
 
 	str = va_arg(arg, char *);
 
@@ -75,13 +81,16 @@ int _strspe(va_list arg, int len)
 	for (; *str != '\0'; str++)
 	{
 		if (*str >= 32 && *str < 127)
+		{
 			write(1, str, 1);
+			bytes++;
+		}
 		else
 		{
 			x = *str;
 			write(1, wild, 2);
-			hexa(x);
+			bytes += hexa(x) + 2;
 		}
 	}
-	return(0);
+	return (bytes);
 }

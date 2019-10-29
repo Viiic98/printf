@@ -29,6 +29,7 @@ int hexa(int x);
 int _validate(int, char, char);
 int positive(int, int, int);
 int negative(int, int, int, int);
+int print_binary(int, int);
 
 /* parameter functions */
 int _char(va_list, int);

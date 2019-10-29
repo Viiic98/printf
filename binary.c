@@ -11,13 +11,12 @@ int _binary(va_list arg, int len)
 	int i = 0, bytes = 0;
 	int x = va_arg(arg, int);
 	int a = x;
-	
+
 	if (x == 0)
 	{
 		_putchar('0');
 		return (1);
 	}
-
 	if (a < 0)
 	{
 		x *= -1;
@@ -29,12 +28,25 @@ int _binary(va_list arg, int len)
 		i++;
 	}
 	i--;
-
 	while (len > i)
 	{
 		_putchar(' ');
 		bytes++, len--;
 	}
+	if (x >= 0)
+		bytes = print_binary(i, x);
+	return (bytes);
+}
+/**
+ * print_binary - Print the binary number of x
+ * @i: number of digits
+ * @x: input number
+ * Return: number of bytes printed
+ */
+int print_binary(int i, int x)
+{
+	int bytes = 0;
+
 	while (i >= 0)
 	{
 		if (_pow(2, i) <= x)
@@ -52,4 +64,3 @@ int _binary(va_list arg, int len)
 	}
 	return (bytes);
 }
-
