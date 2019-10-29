@@ -10,13 +10,21 @@ int _itoa(int x, int len)
 {
 	char s[11];
 	int i = 0, bytes = 0;
+	char flag;
+
+	if (x == INT_MIN)
+	{
+		x = 214748364;
+		_putchar('-');
+		flag = '8';
+	}
 
 	if (x < 0)
 	{
-		if (x > INT_MIN)
 		_putchar('-');
 		x *= -1;
 	}
+
 	while (x != 0)
 	{
 		s[i] = x % 10 + 48;
@@ -37,5 +45,7 @@ int _itoa(int x, int len)
 		write(1, (s + i), 1);
 		i--;
 	}
+	if (flag != 0)
+		write(1, &flag, 1);
 	return (bytes);
 }
