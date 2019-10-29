@@ -20,7 +20,7 @@ int _printf(const char *format, ...);
 /* side functions */
 int _strlen(const char *s);
 int _putchar(char c);
-int _itoa(int, int);
+int print_number(int, int);
 void _revstr(char *);
 int _pow(int, int);
 int _isnumber(int, int);

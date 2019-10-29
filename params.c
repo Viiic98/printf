@@ -60,10 +60,5 @@ int _int(va_list arg, int len)
 {
 	int x = va_arg(arg, int);
 
-	if (x == 0)
-	{
-		write(1, "0", 1);
-		return (0);
-	}
-	return (_itoa(x, len));
+	return (print_number(x, len));
 }
