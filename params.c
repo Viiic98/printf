@@ -34,7 +34,7 @@ int _str(va_list arg, int len)
 	if (str == NULL)
 	{
 		write(1, "(null)", 6);
-		return (-1);
+		return (6);
 	}
 	if (*str == '\0')
 		return (-1);

@@ -1,0 +1,10 @@
+
+#include "holberton.h"
+#include <stdio.h>
+#include <limits.h>
+
+int main(void)
+{
+	_printf("%%");
+        return (0);
+}
