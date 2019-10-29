@@ -25,7 +25,7 @@ int hexa(int x)
 	{
 		write(1, def, 1);
 		write(1, (_hex + 1), 1);
-		bytes++;
+		bytes = 2, i--;
 	}
 	while (i >= 0)
 	{
