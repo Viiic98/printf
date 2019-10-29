@@ -5,9 +5,9 @@
  * @x: decimal number
  * Return: print the hexadecimal number
  */
-void hexa(int x)
+int hexa(int x)
 {
-	int i, res;
+	int i, res, bytes = 0;
 	char hex[100], *def = "0", *_hex;
 
 	for (i = 0; x != 0; i++)
@@ -22,10 +22,14 @@ void hexa(int x)
 	i--;
 	_hex = hex;
 	if (i == 0)
+	{
 		write(1, def, 1);
+		bytes++;
+	}
 	while (i >= 0)
 	{
 		write(1, _hex, 1);
-		_hex++, i--;
+		_hex++, i--, bytes++;
 	}
+	return (bytes);
 }

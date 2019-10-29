@@ -66,6 +66,7 @@ int _compare(char format, int len, va_list arg)
 		{'d', _int},
 		{'i', _int},
 		{'b', _binary},
+		{'S', _strspe},
 		{'\0', NULL},
 	};
 	for (j = 0; params[j].f != '\0'; j++)
@@ -92,7 +93,7 @@ int _validate(int flag, char actual, char percent)
 {
 	int bytes = 0;
 
-	if (flag == 0 && (actual != 'i' && actual != 'd'))
+	if (flag == 0 && (actual != 'i' && actual != 'd' && actual != 'S'))
 	{
 		if (actual != '%')
 		{

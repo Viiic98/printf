@@ -10,7 +10,8 @@ int _binary(va_list arg, int len)
 {
 	int i = 0, bytes = 0;
 	int x = va_arg(arg, int);
-	unsigned int a = x;
+	int a = x;
+	
 	if (x == 0)
 	{
 		_putchar('0');
