@@ -34,7 +34,7 @@ int _binary(va_list arg, int len)
 		bytes++, len--;
 	}
 	if (x >= 0)
-		bytes = print_binary(i, x);
+		bytes += print_binary(i, x);
 	return (bytes);
 }
 /**
