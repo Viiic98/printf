@@ -27,7 +27,8 @@ int _isnumber(int, int);
 int _compare(char, int, va_list);
 void hexa(int x);
 int _validate(int, char, char);
-
+int positive(int, int, int);
+int negative(int, int, int, int);
 /* parameter functions */
 int _char(va_list, int);
 int _str(va_list, int);
