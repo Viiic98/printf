@@ -14,9 +14,9 @@ int hexa(int x)
 	{
 		res = x % 16;
 		if (res < 10)
-			hex[i] = res + 48;
+			hex[1 - i] = res + 48;
 		else
-			hex[i] = res + 55;
+			hex[1 - i] = res + 55;
 		x /= 16;
 	}
 	i--;
@@ -24,6 +24,7 @@ int hexa(int x)
 	if (i == 0)
 	{
 		write(1, def, 1);
+		write(1, (_hex + 1), 1);
 		bytes++;
 	}
 	while (i >= 0)
