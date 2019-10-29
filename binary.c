@@ -8,33 +8,31 @@
  */
 int _binary(va_list arg, int len)
 {
-	int i = 0, bytes = 0;
-	int x = va_arg(arg, int);
-	int a = x;
+	int neg;
+	unsigned int i = 0, bytes = 0, pow, def = 2;
+	unsigned int x = va_arg(arg, unsigned int);
 
+	neg = x;
+	if (neg < 0)
+		return (0);
 	if (x == 0)
 	{
 		_putchar('0');
 		return (1);
 	}
-	if (a < 0)
-	{
-		x *= -1;
-		_putchar('-');
-		bytes++;
-	}
-	while (_pow(2, i) <= x)
+	pow = _pow(def, i);
+	while (pow <= x)
 	{
 		i++;
+		pow = _pow(def, i);
 	}
 	i--;
-	while (len > i)
+	while (len > 0)
 	{
 		_putchar(' ');
 		bytes++, len--;
 	}
-	if (x >= 0)
-		bytes = print_binary(i, x);
+	bytes += print_binary(i, x);
 	return (bytes);
 }
 /**
@@ -43,13 +41,15 @@ int _binary(va_list arg, int len)
  * @x: input number
  * Return: number of bytes printed
  */
-int print_binary(int i, int x)
+int print_binary(unsigned int i, unsigned int x)
 {
-	int bytes = 0;
+	int bytes = 0, index = i;
+	unsigned int pow;
 
-	while (i >= 0)
+	while (index >= 0)
 	{
-		if (_pow(2, i) <= x)
+		pow = _pow(2, i);
+		if (pow <= x)
 		{
 			x -= _pow(2, i);
 			_putchar('1');
@@ -60,7 +60,7 @@ int print_binary(int i, int x)
 			_putchar('0');
 			bytes++;
 		}
-		i--;
+		index--, i--;
 	}
 	return (bytes);
 }
