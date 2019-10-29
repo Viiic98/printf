@@ -10,7 +10,19 @@ int _binary(va_list arg, int len)
 {
 	int i = 0, bytes = 0;
 	int x = va_arg(arg, int);
+	unsigned int a = x;
+	if (x == 0)
+	{
+		_putchar('0');
+		return (1);
+	}
 
+	if (a < 0)
+	{
+		x *= -1;
+		_putchar('-');
+		bytes++;
+	}
 	while (_pow(2, i) <= x)
 	{
 		i++;
@@ -20,7 +32,7 @@ int _binary(va_list arg, int len)
 	while (len > i)
 	{
 		_putchar(' ');
-		bytes++;
+		bytes++, len--;
 	}
 	while (i >= 0)
 	{
