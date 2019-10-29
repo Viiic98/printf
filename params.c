@@ -32,8 +32,12 @@ int _str(va_list arg, int len)
 
 	str = va_arg(arg, char *);
 	if (str == NULL)
-		return (0);
-
+	{
+		write(1, "(null)", 6);
+		return (-1);
+	}
+	if (*str == '\0')
+		return (-1);
 	i = _strlen(str);
 
 	while (len > i)

@@ -25,6 +25,7 @@ int _pow(int, int);
 int _isnumber(int, int);
 int _compare(char, int, va_list);
 void hexa(int x);
+int _validate(int, char, char);
 
 /* parameter functions */
 int _char(va_list, int);

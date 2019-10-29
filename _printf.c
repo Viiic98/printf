@@ -8,7 +8,7 @@
 int _printf(const char *format, ...)
 {
 	va_list arg;
-	int i, flag = 0, len = 0, bytes = 0;
+	int i, len = 0, bytes = 0;
 
 	if (format == NULL)
 		return (-1);
@@ -23,19 +23,7 @@ int _printf(const char *format, ...)
 				len = _isnumber(len, (format[i] - 48));
 				i++;
 			}
-			flag = _compare(format[i], len, arg);
-			if (flag == 0)
-			{
-				if (format[i] != '%')
-				{
-					bytes++;
-					_putchar(format[i - 1]);
-				}
-				_putchar(format[i]);
-				bytes++;
-			}
-			else
-				bytes += flag;
+			bytes += _validate(_compare(format[i], len, arg), format[i], format[i - 1]);
 		}
 		else if (format[i] == '%' && format[i + 1] == '\0')
 		{
@@ -91,4 +79,32 @@ int _compare(char format, int len, va_list arg)
 			flag = 0;
 	}
 	return (flag);
+}
+/**
+ * _validate - valide the flag
+ * @flag: 0 if not found parameter, -1 if string is null,
+ * >= 1 flag is number of bytes
+ * @actual: actual value of format
+ * @percent: percentage
+ * Return: Number of bytes that was printed
+ */
+int _validate(int flag, char actual, char percent)
+{
+	int bytes = 0;
+
+	if (flag == 0)
+	{
+		if (actual != '%')
+		{
+			_putchar(percent);
+			bytes++;
+		}
+		_putchar(actual);
+		bytes++;
+	}
+	if (flag == -1)
+		return (bytes);
+	if (flag >= 1)
+		bytes += flag;
+	return (bytes);
 }

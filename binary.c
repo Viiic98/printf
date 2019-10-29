@@ -3,6 +3,7 @@
 /**
  *_binary - prints a number in binary form
  *@arg: list that will contain the argument needed in order to print the binary
+ *@len: Number of characters that will be printed if len > act_len print spaces
  *Return: amount of bytes printed
  */
 int _binary(va_list arg, int len)
