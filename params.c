@@ -75,7 +75,7 @@ int _strspe(va_list arg, int len)
 
 	str = va_arg(arg, char *);
 
-	if (str == NULL)
+	if (str == NULL || *str == '\0')
 		return (0);
 	if (len == 0)
 		len = 1;
