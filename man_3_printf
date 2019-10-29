@@ -1,0 +1,55 @@
+.TH man 3 "29 October 2019" "1.00" "_printf man page"
+.SH NAME
+\fB_printf \fR\- custom version of formatted output conversion printf
+.SH SYNOPSIS
+\fB#include "holberton.h"
+
+int _printf(const char *\fIformat\fB, ...);
+.SH DESCRIPTION
+_printf is a homebrewed function that very closely immitates the \fBprintf \fRfunction from the \fB<stdio.h> \fRlibrary. It produces output occording to \fIformat \fRas described below. It writes the output to the \fIstdout\fR, the standard output stream.
+
+.B Return Value
+
+Upon successful return, the function will return the number of characters printed (excluding the null byte used to end output to strings). If an output error is encountered, a negative value is returned.
+
+.B Format of the Format String
+
+The format string is a string of characters, it begins and ends with double quotations. Within the format string it may contain zero or more directives which are regular characters (not including \fB%\fR), which are copied one by one to the output. The format string may also contain zero or more conversion specifications (introduced with \fB%\fR), which tell the function to print a specific format of output according to the flags that follow the \fB%\fR.
+.SH OPTIONS
+The function takes options in the conversion specifications which can either be a length modifier or a character specifier. More information in the next section.
+
+.B Conversion Specifications
+
+The conversion specifications that follow \fB%\fR can be one or two. If two conversion specifications are used, the first one will correspond to the length of the desired output. For example if you want to print 77 characters independent of your argument you would use the "\fB%77\fR conversion specifier before using the second specifier which will be the conversion character. In the following list you can see the available character modifiers as well as what they do.
+
+.B Conversion Specifiers
+
+The conversion specifiers is a character that specifies the type of conversion to be applied to the argument passed through it. Here is the list of the conversion specifiers used by the \fB_printf\fR function as well as a brief description of what each of them do.
+
+.B c
+
+The \fIc\fR specifier takes the int argument and converts it to an unsigned char and writes the char to the output.
+
+.B s
+
+The \fIs\fR specifier takes the const char * argument which is expected to be a pointer to a char string and writes all the characters in the string up to the (but not including) the terminating null byte of the string.
+
+.B %
+
+A '%' is written. No argument is converted. The complete conversion specificatio is '%%'.
+
+.B d, i
+
+The \fId, or i\fR specifiers take the int argument and converts it to signed decimal notation, then writes it to the output.
+
+.B b
+
+The \fIb\fR specifier takes the unsigned int argument and converts it to binary notation, then writes the binary notation to the output.
+
+.B S
+
+The \fIS\fR specifier takes a const char * and writes it very similarly to the way the \fIs\fR specifier writes the string that is passed through it, except it takes the non printable ASCII characters and prints them like: \fI\\x\fR followed by the ASCII code value in uppercase hexadecimal-always 2 characters.
+.SH BUGS
+The function does not handle the \fIflag characters, field width, precision, or length modifiers\fR. It also does not process the following conversion specifiers: \fIu, o, x, X, p, +, space, #, r, R, 0, -.
+.SH AUTHOR
+Juan Buitrago (@juanfe9118) and Victor Arteaga (@Xathovic)
