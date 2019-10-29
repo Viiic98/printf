@@ -94,7 +94,8 @@ int _validate(int flag, char actual, char percent)
 {
 	int bytes = 0;
 
-	if (flag == 0 && (actual != 'i' && actual != 'd' && actual != 'S'))
+	if (flag == 0 && (actual != 'i' && actual != 'd' && actual != 'S'
+		    && actual != 'b'))
 	{
 		if (actual != '%')
 		{

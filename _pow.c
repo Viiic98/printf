@@ -8,15 +8,14 @@
  *
  *Return: @x to the @y, if @y < 0 return -1
  */
-int _pow(int x, int y)
+unsigned int _pow(unsigned int x, unsigned int y)
 {
+	unsigned int pow;
+
 	if (y == 0)
 	{
 		return (1);
 	}
-	if (y < 0)
-	{
-		return (-1);
-	}
-	return (x * _pow(x, y - 1));
+	pow = x * _pow(x, y - 1);
+	return (pow);
 }

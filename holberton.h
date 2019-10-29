@@ -22,14 +22,14 @@ int _strlen(const char *s);
 int _putchar(char c);
 int print_number(int, int);
 void _revstr(char *);
-int _pow(int, int);
+unsigned int _pow(unsigned int, unsigned int);
 int _isnumber(int, int);
 int _compare(char, int, va_list);
 int hexa(int x);
 int _validate(int, char, char);
 int positive(int, int, int);
 int negative(int, int, int, int);
-int print_binary(int, int);
+int print_binary(unsigned int, unsigned int);
 int _rev(va_list arg, int len);
 
 /* parameter functions */
