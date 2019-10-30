@@ -12,15 +12,15 @@ _printf is a homebrewed function that very closely immitates the \fBprintf \fRfu
 
 Upon successful return, the function will return the number of characters printed (excluding the null byte used to end output to strings). If an output error is encountered, a negative value is returned.
 
-.B Format of the Format String
+.B Format of the \fIFormat\fB String
 
-The format string is a string of characters, it begins and ends with double quotations. Within the format string it may contain zero or more directives which are regular characters (not including \fB%\fR), which are copied one by one to the output. The format string may also contain zero or more conversion specifications (introduced with \fB%\fR), which tell the function to print a specific format of output according to the flags that follow the \fB%\fR.
+The format string is a string of characters, it begins and ends with double quotations. Within the format string it may contain zero or more directives which are regular characters (not including \fB%\fR), which are copied one by one to the output. The format string may also contain zero or more conversion specifications (introduced with \fB%\fR), which tell the function to print a specific format of output according to the conversion specifiers that follow the \fB%\fR. 
 .SH OPTIONS
 The function takes options in the conversion specifications which can either be a length modifier or a character specifier. More information in the next section.
 
 .B Conversion Specifications
 
-The conversion specifications that follow \fB%\fR can be one or two. If two conversion specifications are used, the first one will correspond to the length of the desired output. For example if you want to print 77 characters independent of your argument you would use the "\fB%77\fR conversion specifier before using the second specifier which will be the conversion character. In the following list you can see the available character modifiers as well as what they do.
+The conversion specifications that follow \fB%\fR can be one or two. If two conversion specifications are used, the first one will correspond to the length of the desired output (only works with the \fIc, s, r, and R\fR specifiers). For example if you want to print 77 characters independent of your argument you would use the "\fB%77\fR" conversion specifier before using the second specifier which will be the conversion character. In the following list you can see the available character modifiers as well as what they do.
 
 .B Conversion Specifiers
 
@@ -32,11 +32,11 @@ The \fIc\fR specifier takes the int argument and converts it to an unsigned char
 
 .B s
 
-The \fIs\fR specifier takes the const char * argument which is expected to be a pointer to a char string and writes all the characters in the string up to the (but not including) the terminating null byte of the string.
+The \fIs\fR specifier takes the const char * argument which is expected to be a pointer to a char string and writes all the characters in the string up to (but not including) the terminating null byte of the string.
 
 .B %
 
-A '%' is written. No argument is converted. The complete conversion specificatio is '%%'.
+A '%' is written. No argument is converted. The complete conversion specification is '%%'.
 
 .B d, i
 
@@ -58,6 +58,6 @@ The \fIr\fR specifier takes a const char * and writes it very similarly to the w
 
 The \fIr\fR specifier takes a const char * and writes it very similarly to the way the \fIs\fR specifier writes the string that is passed through it, except it does it after coding it in ROT13.
 .SH BUGS
-The function does not handle the \fIflag characters, field width, precision, or length modifiers\fR. It also does not process the following conversion specifiers: \fIu, o, x, X, p, +, space, #, R, 0, -.
+The function does not handle the \fIflag characters, field width, precision, or length modifiers\fR. It also does not process the following conversion specifiers: \fIu, o, x, X, p, +, space, #, 0, -.
 .SH AUTHOR
-Juan Buitrago (@juanfe9118) and Victor Arteaga (@Xathovic)
+Juan Buitrago (\fI@juanfe9118\fR) and Victor Arteaga (\fI@Xathovic\fR)
