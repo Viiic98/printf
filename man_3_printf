@@ -53,6 +53,10 @@ The \fIS\fR specifier takes a const char * and writes it very similarly to the w
 .B r
 
 The \fIr\fR specifier takes a const char * and writes it very similarly to the way the \fIs\fR specifier writes the string that is passed through it, except it does it in reverse
+
+.B R
+
+The \fIr\fR specifier takes a const char * and writes it very similarly to the way the \fIs\fR specifier writes the string that is passed through it, except it does it after coding it in ROT13.
 .SH BUGS
 The function does not handle the \fIflag characters, field width, precision, or length modifiers\fR. It also does not process the following conversion specifiers: \fIu, o, x, X, p, +, space, #, R, 0, -.
 .SH AUTHOR
