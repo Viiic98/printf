@@ -1,11 +1,11 @@
 # _Printf
 
-### *_printf *- custom version of formatted output conversion printf
+### *_printf* - custom version of formatted output conversion printf
 
 #### SYNOPSIS
 __#include "holberton.h"__
 
-__int _printf(const char __ _format_ __, ...);__
+**int _printf(const char** *format* **, ...);**
 
 #### DESCRIPTION
 _printf is a homebrewed function that very closely immitates the **printf** function from the ** < stdio.h> ** library. It produces output occording to *format* as described below. It writes the output to the *stdout*, the standard output stream.
