@@ -8,7 +8,7 @@ __#include "holberton.h"__
 **int _printf(const char** *format* **, ...);**
 
 #### DESCRIPTION
-_printf is a homebrewed function that very closely immitates the **printf** function from the ** < stdio.h> ** library. It produces output occording to *format* as described below. It writes the output to the *stdout*, the standard output stream.
+_printf is a homebrewed function that very closely immitates the **printf** function from the **< stdio.h>** library. It produces output occording to *format* as described below. It writes the output to the *stdout*, the standard output stream.
 
 ##### Return Value
 Upon successful return, the function will return the number of characters printed (excluding the null byte used to end output to strings). If an output error is encountered, a negative value is returned.
