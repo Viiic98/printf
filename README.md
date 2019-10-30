@@ -53,7 +53,7 @@ The conversion specifiers is a character that specifies the type of conversion t
 
 ###### R
 
-The *r* specifier takes a const char * and writes it very similarly to the way the _s_ specifier writes the string that is passed through it, except it does it after coding it in ROT13.
+- The *R* specifier takes a const char * and writes it very similarly to the way the _s_ specifier writes the string that is passed through it, except it does it after coding it in ROT13.
 #### BUGS
 The function does not handle the *flag characters, field width, precision, or length modifiers*. It also does not process the following conversion specifiers: *u, o, x, X, p, +, space, #, 0, -.*
 #### AUTHORS
